@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import home from '@/pages/home'
+import writeAr from '@/pages/writeArticle'
 
 Vue.use(Router)
 
@@ -10,6 +11,10 @@ export default new Router({
       path: '/',
       name: 'home',
       component: home
+    },{
+      path: '/writeAr',
+      name: 'writeAr',
+      component: writeAr
     }
   ]
 })

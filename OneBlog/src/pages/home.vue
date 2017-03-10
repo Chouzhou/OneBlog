@@ -1,99 +1,92 @@
 <template>
-  <div class="container">
-    <!--头部信息-->
-    <div class="header">
-      <el-menu theme="dark" :default-active="activeIndex" class="el-menu-demo" mode="horizontal" @select="handleSelect">
-        <!--<el-menu-item index="1">首页</el-menu-item>
-        <el-menu-item index="3">写文章</a></el-menu-item>-->
-        <el-submenu index="2" class="myInfo" style="text-align: right;"> 
-          <template slot="title">{{ name }}</template>
-          <el-menu-item index="2-1">个人资料</el-menu-item>
-          <el-menu-item index="2-2">所写文章</el-menu-item>
-          <!--<el-menu-item index="2-3">选项3</el-menu-item>-->
-        </el-submenu>
-      </el-menu>
-    </div>
-    <div class="line"></div>
-    <!--侧边栏-->
-    <div class="leftmenu"> 
-      <el-row class="tac">
-        <el-col :span="30">         
-          <el-menu default-active="2" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" theme="dark">
-            <el-submenu index="1">
-              <template slot="title"><i class="el-icon-home"></i>首頁</template>
-              <el-menu-item-group>
-                <template slot="title">分组一</template>
-                <el-menu-item index="1-1">选项1</el-menu-item>
-                <el-menu-item index="1-2">选项2</el-menu-item>
-              </el-menu-item-group>
-              <el-menu-item-group title="分组2">
-                <el-menu-item index="1-3">选项3</el-menu-item>
-              </el-menu-item-group>
-              <el-submenu index="1-4">
-                <template slot="title">写文章</template>
-                <el-menu-item index="1-4-1">选项1</el-menu-item>
-              </el-submenu>
-            </el-submenu>
-            <el-menu-item index="2"><i class="el-icon-edit"></i>首頁</el-menu-item>
-            <el-menu-item index="2"><i class="el-icon-edit"></i>写文章</el-menu-item>
-            <!--<el-menu-item index="3"><i class="el-icon-setting"></i>导航三</el-menu-item>-->
-          </el-menu>
-        </el-col>       
-      </el-row>
-    </div>
-    <!--显示首页信息-->
-    <div class="main">
-      <el-breadcrumb separator="/">
-        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-        <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-        <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-        <el-breadcrumb-item>活动详情</el-breadcrumb-item>
-      </el-breadcrumb>
-    </div>
-  </div>
+  <el-row class="content">
+    <!--头部显示-->
+    <el-col :span="24" class="header">
+      <el-col :span="20" class="logo">
+        <!--标题-->
+				<span>My Little Blog</span>
+      </el-col>
+
+      <el-col :span="1" style="position: absolute; right: 130px;">
+        <span>主页</span>
+      </el-col>
+      <el-col :span="1" style="position: absolute; right: 90px;">
+        <span>写文章</span>
+      </el-col>
+              <!--下拉菜单-->
+        <el-col :span="4" class="articleselect">
+          <el-dropdown trigger="click">
+            <span class="el-dropdown-link articleselect-inner"><img :src="this.sysUserAvatar" />文章分类<i class="el-icon-caret-bottom el-icon--right"></i></span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>技术</el-dropdown-item>
+              <el-dropdown-item>休闲</el-dropdown-item>
+            </el-dropdown-menu>
+				  </el-dropdown>
+        </el-col>
+      </el-col>
+    </el-col>
+    <el-col :span="24" class="main">
+			<section class="content-container">
+				<div class="grid-content bg-purple-light">
+					<el-col :span="24" class="content-wrapper">
+						<transition>
+							<router-view></router-view>
+						</transition>
+					</el-col>
+				</div>
+			</section>
+		</el-col>
+  </el-row>
 </template>
 <script>
 export default {
-    data() {
-      return {
-        activeIndex: '1',
-        activeIndex2: '1',
-        name: 'Jack'
-      };
-    },
-    methods: {
-      handleSelect(key, keyPath) {
-        console.log(key, keyPath);
-      },
-      handleClose(key, keyPath) {
-        console.log(key, keyPath);
-      }
-    }
-  }
+}
 </script>
-<style>
-  .header{
-    position:relative;
-  }
-  .myInfo {
-      text-align: right;
-  }
-  .leftmenu{
-    background: #324057;
-		position: absolute;
-		top: 60px;
-		bottom: 0px;
-    width: 200px;
-		overflow: hidden;
-    aside {
-				width: 230px;
-			}
-  }
-  /*主体部分*/
-  .main {
-    position: relative;
-    top: 10px;
-    left: 205px;
 
-  }
+<style>
+.content{
+  position: absolute;
+  top: 0px;
+	bottom: 0px;
+	width: 100%;
+}
+.header{
+    position: absolute;
+    height: 60px;
+		line-height: 60px;
+		background: #1F2D3D;
+		color: #c0ccda;
+}
+.articleselect {
+		text-align: right;
+		padding-right: 20px;
+}
+.articleselect .articleselect-inner {
+		color: #c0ccda;
+		cursor: pointer;
+}
+.main{
+  background: #324057;
+	position: absolute;
+	top: 60px;
+	bottom: 0px;
+  overflow: hidden;
+}
+.logo{
+	font-size: 22px;
+}
+.content-container {
+	background: #f1f2f7;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	bottom: 0px;
+	left: 230px;
+	overflow-y: scroll;
+	padding: 20px;
+}
+.content-wrapper {
+	background-color: #fff;
+	box-sizing: border-box;
+}
 </style>
