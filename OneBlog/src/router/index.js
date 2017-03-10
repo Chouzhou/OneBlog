@@ -10,11 +10,14 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: home
-    },{
-      path: '/writeAr',
-      name: 'writeAr',
-      component: writeAr
+      component: home,
+      children: [
+        {
+          path: 'writeAr',
+          name: 'writeAr',
+          component: writeAr
+        }
+      ]
     }
   ]
 })

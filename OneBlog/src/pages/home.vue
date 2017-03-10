@@ -8,10 +8,10 @@
       </el-col>
 
       <el-col :span="1" style="position: absolute; right: 130px;">
-        <span>主页</span>
+        <span><router-link to="/">主页</router-link></span>
       </el-col>
       <el-col :span="1" style="position: absolute; right: 90px;">
-        <span>写文章</span>
+        <span><router-link to="/writeAr">写文章</router-link></span>
       </el-col>
               <!--下拉菜单-->
         <el-col :span="4" class="articleselect">
@@ -26,7 +26,7 @@
       </el-col>
     </el-col>
     <el-col :span="24" class="main">
-			<section class="content-container">
+			<!--<section class="content-container">
 				<div class="grid-content bg-purple-light">
 					<el-col :span="24" class="content-wrapper">
 						<transition>
@@ -34,7 +34,10 @@
 						</transition>
 					</el-col>
 				</div>
-			</section>
+			</section>-->
+      <template>
+        <router-view></router-view>
+      </template>
 		</el-col>
   </el-row>
 </template>
@@ -68,9 +71,11 @@ export default {
 .main{
   background: #324057;
 	position: absolute;
-	top: 60px;
+	top: 110px;
 	bottom: 0px;
-  overflow: hidden;
+  left: 500px;
+  padding-right: 500px;
+  /*overflow: hidden;*/
 }
 .logo{
 	font-size: 22px;
