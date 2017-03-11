@@ -74,6 +74,9 @@ export default {
   method: {
     showAr() {
       console.log('submit!')
+    },
+    showOneAr() {
+      console.log('submit!')
     }
   }
 }
