@@ -1,7 +1,7 @@
 <template>
     <el-form ref="form" :model="form" label-position="top">
         <h2 style="left: 10px;">编辑文章</h2>
-        <el-form-item label="名字" style="padding-right: 600px;">
+        <el-form-item label="题目" style="padding-right: 600px;">
             <el-input v-model="form.name"></el-input>
         </el-form-item>
         <el-form-item label="内容" style="padding-right: 600px;">
