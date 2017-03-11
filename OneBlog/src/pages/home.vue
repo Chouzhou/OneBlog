@@ -41,7 +41,7 @@
         <el-button class="button-new-tag" size="small" v-on="showAr">技术</el-button>
         <el-button class="button-new-tag" size="small" v-on="showAr">休闲</el-button>
         <!--显示所有文章-->
-        <el-row>
+        <el-row style="top: 20px;">
           <el-col :span="8" v-for="(o, index) in 2" :offset="index > 0 ? 2 : 0">
             <el-card :body-style="{ padding: '0px' }">
               <img src="#" class="image">
@@ -61,20 +61,25 @@
   </el-row>
 </template>
 <script>
-export default {
+// 引入moment.js第三方时间框架
+var moment = require('moment');
+// moment.locale(String);
+export default { 
   data() {
       return {
         tags: [
           { name: '技术', type: '' },
           { name: '休闲', type: 'gray' },
         ],
-        currentDate: new Date()
+        currentDate: moment().locale('zh-cn').format("dddd, MMMM Do YYYY, h:mm:ss a")
       }
     },
-  method: {
+  methods: {
+    // 显示想看类型的文章
     showAr() {
       console.log('submit!')
     },
+    // 查看文章
     showOneAr() {
       console.log('submit!')
     }
@@ -109,7 +114,7 @@ export default {
 	position: absolute;
 	top: 110px;
 	bottom: 0px;
-  left: 500px;
+  left: 450px;
   padding-right: 500px;
   /*overflow: hidden;*/
 }
