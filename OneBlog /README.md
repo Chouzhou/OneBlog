@@ -1,4 +1,4 @@
-# OneBlog
+# oneblog
 
 > a simple blog
 
@@ -19,8 +19,3 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
-
-<<<<<<< HEAD
-# django做后端
-=======
->>>>>>> 038acc8cc97acfd1737f92c76c436ef06b541b83
