@@ -21,7 +21,7 @@
               <el-dropdown-item>技术</el-dropdown-item>
               <el-dropdown-item>休闲</el-dropdown-item>
             </el-dropdown-menu>
-				  </el-dropdown>
+		  </el-dropdown>
         </el-col>
       </el-col>
     </el-col>
@@ -61,6 +61,7 @@
   </el-row>
 </template>
 <script>
+import header from '@/components/Header'
 // 引入moment.js第三方时间框架
 var moment = require('moment');
 // moment.locale(String);
