@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 from django.db import models
-from django.contrib import admin
+
 # Create your models here.
 # 文章
 class Article(models.Model):
@@ -14,6 +14,4 @@ class Article(models.Model):
     timestamp = models.DateTimeField(verbose_name='文章建立时间')
     def __str__(self):
         return self.ar_name
-
-class ArticleAdmin(admin.ModelAdmin):
-    list_display = ('ar_name','ar_desc','timestamp')        
+        

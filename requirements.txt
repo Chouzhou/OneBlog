@@ -1,6 +1,11 @@
 appdirs==1.4.2
 Django==1.10.6
+django-admin-bootstrapped==2.5.7
 django-cors-headers==2.0.2
+django-filter==1.0.1
+django-suit==0.2.24
+djangorestframework==3.6.2
+Markdown==2.6.8
 packaging==16.8
 PyMySQL==0.7.10
 pyparsing==2.1.10

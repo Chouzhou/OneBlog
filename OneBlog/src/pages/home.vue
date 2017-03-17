@@ -8,15 +8,15 @@
       </el-col>
 
       <el-col :span="1" style="position: absolute; right: 130px;">
-        <span><router-link to="/">主页</router-link></span>
+        <span><router-link to="/" style="text-decoration:none; color:#c0ccda;">主页</router-link></span>
       </el-col>
-      <el-col :span="1" style="position: absolute; right: 90px;">
-        <span><router-link to="/writeAr">写文章</router-link></span>
+      <el-col :span="1" style="position: absolute; right: 80px;">
+        <span><router-link to="/writeAr" style="text-decoration:none; color:#c0ccda;">写文章</router-link></span>
       </el-col>
               <!--下拉菜单-->
         <el-col :span="4" class="articleselect">
           <el-dropdown trigger="click">
-            <span class="el-dropdown-link articleselect-inner"><img :src="this.sysUserAvatar" />文章分类<i class="el-icon-caret-bottom el-icon--right"></i></span>
+            <span class="el-dropdown-link articleselect-inner">文章分类<i class="el-icon-caret-bottom el-icon--right"></i></span>
             <el-dropdown-menu slot="dropdown">
               <el-dropdown-item>技术</el-dropdown-item>
               <el-dropdown-item>休闲</el-dropdown-item>
@@ -38,21 +38,22 @@
       <template>
         <p>文章类型</p>
         <!--点击选择文章类型显示-->
-        <el-button class="button-new-tag" size="small" v-on="showAr">技术</el-button>
-        <el-button class="button-new-tag" size="small" v-on="showAr">休闲</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAr">技术</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAr">休闲</el-button>
         <!--显示所有文章-->
         <el-row style="top: 20px;">
-          <el-col :span="8" v-for="(o, index) in 2" :offset="index > 0 ? 2 : 0">
-            <el-card :body-style="{ padding: '0px' }">
-              <img src="#" class="image">
-              <div style="padding: 14px;">
-                <span>好吃的汉堡</span>
-                <div class="bottom clearfix">
-                  <time class="time">{{ currentDate }}</time>
-                  <el-button type="text" class="button" @click="showOneAr">查看文章</el-button>
+          <el-col :span="8" v-for="article in articles" class="cardboder">
+              <el-card :body-style="{ padding: '2px' }" >
+                <!--<img src="#" class="image">-->
+                <div style="padding: 14px;">
+                  <h3 v-text="article.ar_name"></h3></br>
+                  <span v-text="article.ar_desc"></span>
+                  <div class="bottom clearfix">
+                    <time class="time">{{ article.timestamp | timeformat}}</time>
+                    <el-button type="text" class="button" @click="showOneAr">查看文章</el-button>
+                  </div>
                 </div>
-              </div>
-            </el-card>
+              </el-card>
           </el-col>
         </el-row>
         <router-view></router-view>
@@ -72,16 +73,35 @@ export default {
           { name: '技术', type: '' },
           { name: '休闲', type: 'gray' },
         ],
-        currentDate: moment().locale('zh-cn').format("dddd, MMMM Do YYYY, h:mm:ss a")
+        currentDate: moment().locale('zh-cn').format("dddd, MMMM Do YYYY, h:mm:ss a"),
+        articles: []
       }
     },
+  mounted: function() {
+    this.$nextTick(function (){
+      this.showAllAr();
+    });
+  },
+  filters: {
+    timeformat: function (value){
+      return moment(value).locale('zh-cn').format("dddd, MMMM Do YYYY, h:mm:ss a")
+    }
+  },
   methods: {
     // 显示想看类型的文章
-    showAr() {
+    showAr: function() {
       console.log('submit!')
     },
     // 查看文章
-    showOneAr() {
+    showOneAr: function() {
+      console.log('submit!')
+    },
+    // 显示所有文章
+    showAllAr: function() {
+      this.$http.get('http://127.0.0.1:8000/api/articles/').then(res=>{
+        this.articles = res.body.results
+        // console.log(res.body.re);
+      });
       console.log('submit!')
     }
   }
@@ -159,7 +179,11 @@ export default {
   }
   
   .clearfix:after {
-      clear: both
+      clear: both;
+  }
+  .cardboder{
+    position: relative;
+    margin: 10px;
   }
   /*×××××××××××××××××××××××*/
 </style>
