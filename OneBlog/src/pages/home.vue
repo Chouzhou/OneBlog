@@ -7,12 +7,12 @@
 				<span>My Little Blog</span>
       </el-col>
 
-      <el-col :span="1" style="position: absolute; right: 130px;">
+      <el-col :span="1" style="position: absolute; right: 80px;">
         <span><router-link to="/" style="text-decoration:none; color:#c0ccda;">主页</router-link></span>
       </el-col>
-      <el-col :span="1" style="position: absolute; right: 80px;">
+      <!--<el-col :span="1" style="position: absolute; right: 80px;">
         <span><router-link to="/writeAr" style="text-decoration:none; color:#c0ccda;">写文章</router-link></span>
-      </el-col>
+      </el-col>-->
               <!--下拉菜单-->
         <el-col :span="4" class="articleselect">
           <el-dropdown trigger="click">
@@ -26,20 +26,11 @@
       </el-col>
     </el-col>
     <el-col :span="24" class="main">
-			<!--<section class="content-container">
-				<div class="grid-content bg-purple-light">
-					<el-col :span="24" class="content-wrapper">
-						<transition>
-							<router-view></router-view>
-						</transition>
-					</el-col>
-				</div>
-			</section>-->
       <template>
         <p>文章类型</p>
         <!--点击选择文章类型显示-->
-        <el-button class="button-new-tag" size="small" @click="showAr">技术</el-button>
-        <el-button class="button-new-tag" size="small" @click="showAr">休闲</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAr('技术')">技术</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAr('休闲')">休闲</el-button>
         <!--显示所有文章-->
         <el-row style="top: 20px;">
           <el-col :span="8" v-for="article in articles" class="cardboder">
@@ -56,8 +47,8 @@
               </el-card>
           </el-col>
         </el-row>
-        <router-view></router-view>
       </template>
+      <router-view></router-view>
 		</el-col>
   </el-row>
 </template>
@@ -89,7 +80,11 @@ export default {
   },
   methods: {
     // 显示想看类型的文章
-    showAr: function() {
+    showAr: function(type) {
+      this.$http.get('http://127.0.0.1:8000/api/articles/').then(res=>{
+        this.articles = res.body.results
+        // console.log(res.body.re);
+      });
       console.log('submit!')
     },
     // 查看文章

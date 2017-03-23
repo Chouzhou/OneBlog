@@ -18,4 +18,4 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class ArticleSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Article
-        fields = ('ar_name', 'ar_desc', 'ar_body', 'timestamp')
+        fields = ('ar_name', 'ar_type', 'ar_desc', 'ar_body', 'timestamp')

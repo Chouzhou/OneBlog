@@ -1,0 +1,101 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+0001_initial.py	../back/migrations/0001_initial.py	1;"	kind:file	line:1
+0002_auto_20170316_1641.py	../back/migrations/0002_auto_20170316_1641.py	1;"	kind:file	line:1
+ALLOWED_HOSTS	../backProject/settings.py	/^ALLOWED_HOSTS = []$/;"	kind:variable	line:29
+AUTH_PASSWORD_VALIDATORS	../backProject/settings.py	/^AUTH_PASSWORD_VALIDATORS = [$/;"	kind:variable	line:115
+Article	../back/models.py	/^class Article(models.Model):$/;"	kind:class	line:6
+ArticleAdmin	../back/admin.py	/^class ArticleAdmin(admin.ModelAdmin):$/;"	kind:class	line:7
+ArticleSerializer	../back/serializers.py	/^class ArticleSerializer(serializers.HyperlinkedModelSerializer):$/;"	kind:class	line:18
+ArticleViewSet	../back/views.py	/^class ArticleViewSet(viewsets.ModelViewSet):$/;"	kind:class	line:35
+BASE_DIR	../backProject/settings.py	/^BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))$/;"	kind:variable	line:17
+BackConfig	../back/apps.py	/^class BackConfig(AppConfig):$/;"	kind:class	line:4
+CORS_ORIGIN_ALLOW_ALL	../backProject/settings.py	/^CORS_ORIGIN_ALLOW_ALL = True$/;"	kind:variable	line:73
+DATABASES	../backProject/settings.py	/^DATABASES = {$/;"	kind:variable	line:100
+DEBUG	../backProject/settings.py	/^DEBUG = True$/;"	kind:variable	line:27
+GroupSerializer	../back/serializers.py	/^class GroupSerializer(serializers.HyperlinkedModelSerializer):$/;"	kind:class	line:12
+GroupViewSet	../back/views.py	/^class GroupViewSet(viewsets.ModelViewSet):$/;"	kind:class	line:28
+INSTALLED_APPS	../backProject/settings.py	/^INSTALLED_APPS = [$/;"	kind:variable	line:34
+LANGUAGE_CODE	../backProject/settings.py	/^LANGUAGE_CODE = 'zh-hans'$/;"	kind:variable	line:134
+MIDDLEWARE	../backProject/settings.py	/^MIDDLEWARE = [$/;"	kind:variable	line:61
+Meta	../back/serializers.py	/^    class Meta:$/;"	kind:class	line:13
+Meta	../back/serializers.py	/^    class Meta:$/;"	kind:class	line:19
+Meta	../back/serializers.py	/^    class Meta:$/;"	kind:class	line:7
+Migration	../back/migrations/0001_initial.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+Migration	../back/migrations/0002_auto_20170316_1641.py	/^class Migration(migrations.Migration):$/;"	kind:class	line:8
+REST_FRAMEWORK	../backProject/settings.py	/^REST_FRAMEWORK = {$/;"	kind:variable	line:50
+ROOT_URLCONF	../backProject/settings.py	/^ROOT_URLCONF = 'backProject.urls'$/;"	kind:variable	line:75
+SECRET_KEY	../backProject/settings.py	/^SECRET_KEY = 'qcc9v@rp6*+lro-j@q!su)&ou50&8vfi8wp5x$rs9ka8%+ys+i'$/;"	kind:variable	line:24
+SETTINGS_PATH	../backProject/settings.py	/^SETTINGS_PATH = os.path.normpath(os.path.dirname(__file__))$/;"	kind:variable	line:76
+STATICFILES_DIRS	../backProject/settings.py	/^STATICFILES_DIRS = [$/;"	kind:variable	line:150
+STATIC_URL	../backProject/settings.py	/^STATIC_URL = '\/static\/'$/;"	kind:variable	line:148
+TEMPLATES	../backProject/settings.py	/^TEMPLATES = [$/;"	kind:variable	line:78
+TIME_ZONE	../backProject/settings.py	/^TIME_ZONE = 'Asia\/Shanghai'$/;"	kind:variable	line:136
+USE_I18N	../backProject/settings.py	/^USE_I18N = True$/;"	kind:variable	line:138
+USE_L10N	../backProject/settings.py	/^USE_L10N = True$/;"	kind:variable	line:140
+USE_TZ	../backProject/settings.py	/^USE_TZ = True$/;"	kind:variable	line:142
+UserSerializer	../back/serializers.py	/^class UserSerializer(serializers.HyperlinkedModelSerializer):$/;"	kind:class	line:6
+UserViewSet	../back/views.py	/^class UserViewSet(viewsets.ModelViewSet):$/;"	kind:class	line:20
+WSGI_APPLICATION	../backProject/settings.py	/^WSGI_APPLICATION = 'backProject.wsgi.application'$/;"	kind:variable	line:94
+__init__.py	../back/__init__.py	1;"	kind:file	line:1
+__init__.py	../back/migrations/__init__.py	1;"	kind:file	line:1
+__init__.py	../backProject/__init__.py	1;"	kind:file	line:1
+__str__	../back/models.py	/^    def __str__(self):$/;"	kind:member	line:15
+admin.py	../back/admin.py	1;"	kind:file	line:1
+application	../backProject/wsgi.py	/^application = get_wsgi_application()$/;"	kind:variable	line:16
+apps.py	../back/apps.py	1;"	kind:file	line:1
+ar_body	../back/models.py	/^    ar_body = models.TextField(verbose_name='文章主要内容')$/;"	kind:variable	line:12
+ar_desc	../back/models.py	/^    ar_desc = models.CharField(max_length=255,verbose_name='文章描述')$/;"	kind:variable	line:10
+ar_name	../back/models.py	/^    ar_name = models.CharField(max_length=30,verbose_name='文章名')$/;"	kind:variable	line:8
+authentication_classes	../back/views.py	/^    authentication_classes = (BasicAuthentication, SessionAuthentication, )  $/;"	kind:variable	line:41
+dependencies	../back/migrations/0001_initial.py	/^    dependencies = [$/;"	kind:variable	line:12
+dependencies	../back/migrations/0002_auto_20170316_1641.py	/^    dependencies = [$/;"	kind:variable	line:10
+field	../back/migrations/0002_auto_20170316_1641.py	/^            field=models.CharField(max_length=255, verbose_name='文章描述'),$/;"	kind:variable	line:23
+field	../back/migrations/0002_auto_20170316_1641.py	/^            field=models.CharField(max_length=30, verbose_name='文章名'),$/;"	kind:variable	line:28
+field	../back/migrations/0002_auto_20170316_1641.py	/^            field=models.DateTimeField(verbose_name='文章建立时间'),$/;"	kind:variable	line:33
+field	../back/migrations/0002_auto_20170316_1641.py	/^            field=models.TextField(verbose_name='文章主要内容'),$/;"	kind:variable	line:18
+fields	../back/migrations/0001_initial.py	/^            fields=[$/;"	kind:variable	line:18
+fields	../back/serializers.py	/^        fields = ('ar_name', 'ar_desc', 'ar_body', 'timestamp')/;"	kind:variable	line:21
+fields	../back/serializers.py	/^        fields = ('url', 'name')$/;"	kind:variable	line:15
+fields	../back/serializers.py	/^        fields = ('url', 'username', 'email', 'groups')$/;"	kind:variable	line:9
+home	../back/views.py	/^def home(request):$/;"	kind:function	line:6
+initial	../back/migrations/0001_initial.py	/^    initial = True$/;"	kind:variable	line:10
+list_display	../back/admin.py	/^    list_display = ('ar_name','ar_desc','timestamp')$/;"	kind:variable	line:8
+manage.py	../manage.py	1;"	kind:file	line:1
+model	../back/serializers.py	/^        model = Article$/;"	kind:variable	line:20
+model	../back/serializers.py	/^        model = Group$/;"	kind:variable	line:14
+model	../back/serializers.py	/^        model = User$/;"	kind:variable	line:8
+model_name	../back/migrations/0002_auto_20170316_1641.py	/^            model_name='article',$/;"	kind:variable	line:16
+model_name	../back/migrations/0002_auto_20170316_1641.py	/^            model_name='article',$/;"	kind:variable	line:21
+model_name	../back/migrations/0002_auto_20170316_1641.py	/^            model_name='article',$/;"	kind:variable	line:26
+model_name	../back/migrations/0002_auto_20170316_1641.py	/^            model_name='article',$/;"	kind:variable	line:31
+models.py	../back/models.py	1;"	kind:file	line:1
+name	../back/apps.py	/^    name = 'back'$/;"	kind:variable	line:5
+name	../back/migrations/0001_initial.py	/^            name='Article',$/;"	kind:variable	line:17
+name	../back/migrations/0002_auto_20170316_1641.py	/^            name='ar_body',$/;"	kind:variable	line:17
+name	../back/migrations/0002_auto_20170316_1641.py	/^            name='ar_desc',$/;"	kind:variable	line:22
+name	../back/migrations/0002_auto_20170316_1641.py	/^            name='ar_name',$/;"	kind:variable	line:27
+name	../back/migrations/0002_auto_20170316_1641.py	/^            name='timestamp',$/;"	kind:variable	line:32
+operations	../back/migrations/0001_initial.py	/^    operations = [$/;"	kind:variable	line:15
+operations	../back/migrations/0002_auto_20170316_1641.py	/^    operations = [$/;"	kind:variable	line:14
+permission_classes	../back/views.py	/^    permission_classes = (IsAuthenticatedOrReadOnly,) $/;"	kind:variable	line:42
+queryset	../back/views.py	/^    queryset = Article.objects.all()$/;"	kind:variable	line:36
+queryset	../back/views.py	/^    queryset = Group.objects.all()$/;"	kind:variable	line:32
+queryset	../back/views.py	/^    queryset = User.objects.all().order_by('-date_joined')$/;"	kind:variable	line:24
+router	../backProject/urls.py	/^router = routers.DefaultRouter()$/;"	kind:variable	line:22
+serializer_class	../back/views.py	/^    serializer_class = ArticleSerializer$/;"	kind:variable	line:37
+serializer_class	../back/views.py	/^    serializer_class = GroupSerializer$/;"	kind:variable	line:33
+serializer_class	../back/views.py	/^    serializer_class = UserSerializer$/;"	kind:variable	line:25
+serializers.py	../back/serializers.py	1;"	kind:file	line:1
+settings.py	../backProject/settings.py	1;"	kind:file	line:1
+tests.py	../back/tests.py	1;"	kind:file	line:1
+timestamp	../back/models.py	/^    timestamp = models.DateTimeField(verbose_name='文章建立时间')$/;"	kind:variable	line:14
+urlpatterns	../backProject/urls.py	/^urlpatterns = [$/;"	kind:variable	line:26
+urls.py	../back/urls.py	1;"	kind:file	line:1
+urls.py	../backProject/urls.py	1;"	kind:file	line:1
+views.py	../back/views.py	1;"	kind:file	line:1
+wsgi.py	../backProject/wsgi.py	1;"	kind:file	line:1

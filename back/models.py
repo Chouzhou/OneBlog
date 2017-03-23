@@ -6,6 +6,8 @@ from django.db import models
 class Article(models.Model):
     # 文章名
     ar_name = models.CharField(max_length=30,verbose_name='文章名')
+    # 文章类型
+    ar_type = models.CharField(max_length=40,verbose_name='文章类型')
     # 文章描述
     ar_desc = models.CharField(max_length=255,verbose_name='文章描述')
     # 文章主要内容
