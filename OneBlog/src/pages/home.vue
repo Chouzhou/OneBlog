@@ -6,34 +6,17 @@
         <!--标题-->
 				<span>My Little Blog</span>
       </el-col>
-
-      <el-col :span="1" style="position: absolute; right: 80px;">
-        <span><router-link to="/" style="text-decoration:none; color:#c0ccda;">主页</router-link></span>
-      </el-col>
-      <!--<el-col :span="1" style="position: absolute; right: 80px;">
-        <span><router-link to="/writeAr" style="text-decoration:none; color:#c0ccda;">写文章</router-link></span>
-      </el-col>-->
-              <!--下拉菜单-->
-        <el-col :span="4" class="articleselect">
-          <el-dropdown trigger="click">
-            <span class="el-dropdown-link articleselect-inner">文章分类<i class="el-icon-caret-bottom el-icon--right"></i></span>
-            <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>技术</el-dropdown-item>
-              <el-dropdown-item>休闲</el-dropdown-item>
-            </el-dropdown-menu>
-		  </el-dropdown>
-        </el-col>
-      </el-col>
     </el-col>
     <el-col :span="24" class="main">
       <template>
         <p>文章类型</p>
         <!--点击选择文章类型显示-->
-        <el-button class="button-new-tag" size="small" @click="showAr('技术')">技术</el-button>
-        <el-button class="button-new-tag" size="small" @click="showAr('休闲')">休闲</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAr('jishu')">技术</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAr('2')">休闲</el-button>
+        <el-button class="button-new-tag" size="small" @click="showAllAr">所有文章</el-button>
         <!--显示所有文章-->
         <el-row style="top: 20px;">
-          <el-col :span="8" v-for="article in articles" class="cardboder">
+          <el-col :span="8" v-for="(article, key) in articles" class="cardboder">
               <el-card :body-style="{ padding: '2px' }" >
                 <!--<img src="#" class="image">-->
                 <div style="padding: 14px;">
@@ -81,9 +64,10 @@ export default {
   methods: {
     // 显示想看类型的文章
     showAr: function(type) {
-      this.$http.get('http://127.0.0.1:8000/api/articles/').then(res=>{
-        this.articles = res.body.results
-        // console.log(res.body.re);
+      this.$http.get('http://127.0.0.1:8000/api/articles/'+type).then(res=>{
+        this.articles = []
+        this.articles = res.data.results
+        // console.log(res);
       });
       console.log('submit!')
     },
@@ -94,8 +78,8 @@ export default {
     // 显示所有文章
     showAllAr: function() {
       this.$http.get('http://127.0.0.1:8000/api/articles/').then(res=>{
-        this.articles = res.body.results
-        // console.log(res.body.re);
+        this.articles = res.data.results
+        // console.log(res.data.results);
       });
       console.log('submit!')
     }

@@ -11,4 +11,5 @@ from .views import *
 urlpatterns = [
     # url(r'^$', include('router.urls')),
     url(r'articles/$', ArticleViewSet.as_view(), name='article_list'),
+    url(r'articles/(?P<ar_type>.+)', ArticleViewSetFilter.as_view()),
 ]

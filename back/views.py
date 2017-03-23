@@ -13,7 +13,6 @@ from back.models import Article
 from rest_framework import generics
 from back.serializers import UserSerializer, GroupSerializer, ArticleSerializer
 # 解决出现‘身份认证信息未提供’
-from rest_framework.authentication import SessionAuthentication, BasicAuthentication  
 from rest_framework.permissions import AllowAny, IsAuthenticatedOrReadOnly  
 
 
@@ -38,16 +37,22 @@ class ArticleViewSet(generics.ListAPIView):
     # 解决出现‘身份认证信息未提供’
     #注意这里我将BasicAuthentication放在了SessionAuthentication前面，否则  
     #会先用SessionAuthentication认证，而这会造成C#的NetworkCredentials认证失败  
-    authentication_classes = (BasicAuthentication, SessionAuthentication, )  
+    # authentication_classes = (BasicAuthentication, SessionAuthentication, )  
     permission_classes = (IsAuthenticatedOrReadOnly,)
+     
+
+# 过滤文章显示
+class ArticleViewSetFilter(generics.ListAPIView):
+    # authentication_classes = (BasicAuthentication, SessionAuthentication, )  
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    serializer_class = ArticleSerializer
     def get_queryset(self):
         """
         This view should return a list of all the purchases for
         the user as determined by the username portion of the URL.
         """
-        queryset = Article.objects.all()
-        ar_type = self.request.query_params.get('ar_type', None)
+        # queryset = Article.objects.all()
+        ar_type = self.kwargs['ar_type']
         if ar_type is not None:
-            queryset = queryset.filter(ar_type=ar_type)
-        return queryset 
-
+            queryset = Article.objects.filter(ar_type=ar_type)
+        return queryset

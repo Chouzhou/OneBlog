@@ -25,6 +25,6 @@ from back.views import *
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home, name='home'),
-    url(r'^api/', include('back.urls')),
+    url(r'^api/', include('back.urls', namespace='api')),
     # url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
 ]

@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 
 # rest_framework设置
 REST_FRAMEWORK = {
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser','rest_framework.permissions.IsAuthenticatedOrReadOnly',),
     'PAGE_SIZE': 10,
     'DEFAULT_AUTHENTICATION_CLASSES': (  
         'rest_framework.authentication.BasicAuthentication',  
