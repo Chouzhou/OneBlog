@@ -8,15 +8,15 @@ import 'element-ui/lib/theme-default/index.css'
 // import VueResource from 'vue-resource';
 // Vue.use(VueResource);
 import axios from 'axios'
+import Vuex from 'vuex'
 Vue.prototype.$http = axios
 Vue.use(ElementUI)
-Vue.config.productionTip = false
-
+Vue.use(Vuex)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
   template: '<App/>',
   components: { App },
-  render: h => h(App)
+  // render: h => h(App)
 })

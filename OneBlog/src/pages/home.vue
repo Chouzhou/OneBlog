@@ -1,14 +1,5 @@
 <template>
-  <el-row class="content">
-    <!--头部显示-->
-    <el-col :span="24" class="header">
-      <el-col :span="20" class="logo">
-        <!--标题-->
-				<span>My Little Blog</span>
-      </el-col>
-    </el-col>
-    <el-col :span="24" class="main">
-      <template>
+  <div>
         <p>文章类型</p>
         <!--点击选择文章类型显示-->
         <el-button class="button-new-tag" size="small" @click="showAr('jishu')">技术</el-button>
@@ -17,29 +8,24 @@
         <!--显示所有文章-->
         <el-row style="top: 20px;">
           <el-col :span="8" v-for="(article, key) in articles" class="cardboder">
-              <el-card :body-style="{ padding: '2px' }" >
-                <!--<img src="#" class="image">-->
+              <el-card :body-style="{ padding: '2px' }">
                 <div style="padding: 14px;">
                   <h3 v-text="article.ar_name"></h3></br>
                   <span v-text="article.ar_desc"></span>
                   <div class="bottom clearfix">
                     <time class="time">{{ article.timestamp | timeformat}}</time>
-                    <el-button type="text" class="button" @click="showOneAr">查看文章</el-button>
+                    <el-button type="text" class="button" @click="showOneAr(article)">查看文章</el-button>
                   </div>
                 </div>
               </el-card>
           </el-col>
         </el-row>
-      </template>
-      <router-view></router-view>
-		</el-col>
-  </el-row>
+  </div>
 </template>
 <script>
-import header from '@/components/Header'
 // 引入moment.js第三方时间框架
 var moment = require('moment');
-// moment.locale(String);
+// 状态管理
 export default { 
   data() {
       return {
@@ -65,71 +51,30 @@ export default {
     // 显示想看类型的文章
     showAr: function(type) {
       this.$http.get('http://127.0.0.1:8000/api/articles/'+type).then(res=>{
-        this.articles = []
-        this.articles = res.data.results
+        this.articles = [];
+        this.articles = res.data.results;
         // console.log(res);
       });
-      console.log('submit!')
+      // console.log('submit!');
     },
     // 查看文章
-    showOneAr: function() {
-      console.log('submit!')
+    showOneAr: function(key) {
+      console.log(key);
+      this.$router.push({name: 'article', params: {article: key}});
     },
     // 显示所有文章
     showAllAr: function() {
       this.$http.get('http://127.0.0.1:8000/api/articles/').then(res=>{
-        this.articles = res.data.results
-        // console.log(res.data.results);
+        this.articles = res.data.results;
       });
-      console.log('submit!')
+      // console.log('submit!');
     }
   }
 }
 </script>
 
 <style>
-.content{
-  position: absolute;
-  top: 0px;
-	bottom: 0px;
-	width: 100%;
-}
-.header{
-    position: absolute;
-    height: 60px;
-		line-height: 60px;
-		background: #1F2D3D;
-		color: #c0ccda;
-}
-.articleselect {
-		text-align: right;
-		padding-right: 20px;
-}
-.articleselect .articleselect-inner {
-		color: #c0ccda;
-		cursor: pointer;
-}
-.main{
-  background: #324057;
-	position: absolute;
-	top: 110px;
-	bottom: 0px;
-  left: 450px;
-  padding-right: 500px;
-  /*overflow: hidden;*/
-}
-.logo{
-	font-size: 22px;
-}
-.content-container {
-	background: #f1f2f7;
-	position: absolute;
-  
-}
-.content-wrapper {
-	background-color: #fff;
-	/*box-sizing: border-box;*/
-}
+
 /*显示文章的CSS*/
 .time {
     font-size: 13px;
